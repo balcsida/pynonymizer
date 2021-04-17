@@ -8,9 +8,11 @@ tables:
   film:
     columns:
       description: bs
-      title: unique_login
+      title: word
   actor:
     columns:
-      first_name: first_name
+      first_name:
+        type: literal
+        value: (SELECT title from film WHERE film.film_id = actor.actor_id)
       last_name: last_name
   film_text: delete
